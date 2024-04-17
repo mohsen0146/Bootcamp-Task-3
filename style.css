@@ -1,0 +1,349 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+/* Variables */
+:root {
+    --primaryColor: #6d28d9;
+    --secondaryColor: #ede9fe;
+    --mainWhite: #fff;
+    --mainBlack: #222;
+    --mainGrey: #7c7c7c;
+    --secondayGrey:#ccc;
+    --mainSpacing: 0.1rem;
+    --mainTransition: all 0.3s linear;
+    --mainRed: #db2777;
+    --bodyColor: #f6f6f6;
+  }
+
+  /* Fonts */
+  @font-face {
+    font-family: "iranYekan";
+    font-style: normal;
+    font-weight: 400;
+    src: url(./IRANYekanWebRegular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "iranYekan";
+    font-style: normal;
+    font-weight: 700;
+    src: url(./IRANYekanWeb\ Bold.woff2) format("woff2");
+  }
+
+
+  body{
+    /* font-family: sans-serif; */
+    color: var(--mainBlack);
+    background-color: var(--bodyColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header{
+    color:#6a00ff8e;
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 3px 3px 8px rgba(109, 40, 217, 1);
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .form-container{
+      flex-direction: row;
+    }
+  }
+
+  .todo-container{
+    margin-top: 1rem;
+    width: auto;
+  }
+
+  @media screen and (min-width: 600px) {
+    .todo-container{
+      width: 25rem;
+    }
+  }
+
+  form{
+    width: auto;
+    height: 52px;
+    background-color: var(--mainWhite);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    border:2px solid var(--secondayGrey);
+    overflow: hidden;
+    order: 2;
+  }
+
+  @media screen and (min-width: 600px) {
+    form{
+      width: 25rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    form{
+      order: 0;
+    }
+  }
+
+  form input {
+    flex: 1;
+    font-weight: bold;
+    
+  }
+  
+  form input,
+  form button {
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  
+  form button {
+    color: var(--primaryColor);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  form button:hover {
+    background-color: var(--primaryColor);
+    color: var(--mainWhite);
+  }
+  .todo {
+    background-color: var(--mainWhite);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    display: flex;
+   
+    
+  }
+  .todo .todo__title {
+    color: var(--primaryColor);
+    font-weight: bold;
+    flex: 1;
+    width: 5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  /* .todo__title:hover{
+    overflow: visible; 
+    white-space: normal;
+    height:auto; 
+    max-width: 100%; /* just added this line */
+/* } */
+
+  
+  .todo button {
+    display: block;
+    font-size: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .todolist__details{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .fa-trash-alt {
+    color: var(--mainRed);
+  }
+  .fa-check-square {
+    color: var(--primaryColor);
+  }
+  .fa-pen-to-square{
+    color: var(--primaryColor);
+  }
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  
+  select {
+    appearance: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 1rem;
+    color: var(--primaryColor);
+  }
+  
+  .select {
+    margin-left: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    width: 10rem;
+    position: relative;
+    border: 2px solid var(--secondayGrey);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    order: 1;
+  }
+  .select::after {
+    content: "\25BC";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    color: var(--primaryColor);
+    pointer-events: none;
+  }
+
+  .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  button{
+    border: none;
+    outline: 0;
+  
+  }
+  button > i {
+    pointer-events: none;
+  } 
+
+  .backdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    backdrop-filter: blur(3px);
+}
+
+
+.modal{
+  z-index: 20;
+  position: absolute;
+  padding: 1rem;
+  width: 40%;
+  max-width: 50rem;
+  border: 1px solid #efefef;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  }
+  
+  .hidden{
+      display: none;
+  }
+
+  .modal__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px solid var(--secondayGrey);
+  }
+
+  .modal__header h2{
+    color: var(--mainGrey);
+    font-size: 1.5rem;
+
+  }
+
+  .close-btn{
+    border-radius: 0.5rem;
+    padding:  0.5rem;
+    color: red;
+    font-weight: bold;
+    background-color: var(--mainWhite);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .modal-form{
+    /* width: auto; */
+    height: 40px;
+    background-color: var(--mainWhite);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid var(--secondayGrey);
+    overflow: hidden;
+    order: 2;
+
+  }
+
+  .modal__input{
+    flex: 1;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: var(--primaryColor);
+ 
+  }
+
+  .modal__action{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .confirm-btn, .cancel-btn{
+   color: var(--primaryColor);
+   padding: 0.5rem;
+   cursor: pointer;
+   width: 10rem;
+   border: 2px solid var(--secondayGrey);
+   font-weight: bold;
+   border-radius: 0.5rem;
+  }
+
+  .cancel-btn{
+    color:red;
+    background-color: var(--secondayGrey);
+  }
+
+  .cancel-btn:hover{
+  background-color: rgb(197, 197, 197);
+  }

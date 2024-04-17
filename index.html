@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="#" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <header>
+      <h1>Todo List</h1>
+    </header>
+    <section class="container">
+      <div class="form-container">
+        <form class="todo-form">
+          <input type="text" class="todo__input" />
+          <button class="add-todo" type="submit">
+            <i class="fas fa-plus-circle"></i>
+          </button>
+        </form>
+        <div class="select">
+          <select name="todos" class="filter-todos">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+      </div>
+      <div class="todo-container">
+        <ul class="todoList"></ul>
+      </div>
+    </section>
+    <div class="backdrop hidden"></div>
+    <div class="modal hidden">
+      <div class="modal__header">
+        <h2>Edit todo</h2>
+        <button class="close-btn close-modal">&times;</button>
+      </div>
+      <div class="modal__text">
+        <form class="modal-form">
+          <input type="text" class="modal__input" />
+          <!-- <button class="add-editedtodo" type="submit">
+            <i class="fas fa-plus-circle"></i>
+          </button> -->
+          </form>
+      </div>
+      <div class="modal__action">
+        <button class="confirm-btn close-modal">Confirm</button>
+        <button class="cancel-btn close-modal">Cancel</button>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
